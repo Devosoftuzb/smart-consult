@@ -2,6 +2,7 @@
     width: 100%;
     margin-left: 270px;
     padding-bottom: 30px;
+    overflow: hidden;
 }
 .Profile-content{
     padding: 0 30px;

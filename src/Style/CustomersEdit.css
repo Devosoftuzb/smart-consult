@@ -1,6 +1,7 @@
 .CustomersEdit{
     width: 100%;
     margin-left: 270px;
+    overflow: hidden;
 }
 .CustomersEdit-content{
     width: 100%;

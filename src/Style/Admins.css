@@ -3,6 +3,7 @@
     margin-left: 270px;
     background-color: #F1F5F9;
     padding-bottom: 20px;
+    overflow: hidden;
 }
 .Admins-content{
     width: 100%;
@@ -189,6 +190,35 @@
 .Admins-content-table p{
     font-size: 12px;
     text-align: center;
+}
+.Admins-footer{
+    margin-top: 10px;
+    padding: 30px;
+     background-color: white;    
+     border-radius: 10px;
+    border: 1px solid #DCE1EF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Admins-footer button{
+    background-color: #2563EB;
+    border: 2px solid #2563EB;
+    border-radius: 10px;
+    padding: 7px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+.Admins-footer button svg{
+    font-size: 20px;
+
+}
+.Admins-footer button:hover{
+    background-color: transparent;
+    color: black;
 }
 @media(max-width:1100px){
     .Admins{

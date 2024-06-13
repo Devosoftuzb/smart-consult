@@ -6,6 +6,7 @@
     background-color: #F1F5F9;
     /* min-height: 100px; */
     /* overflow: hidden; */
+    overflow: hidden;
     padding-bottom: 20px;
 }
 .Customers-content{
@@ -207,6 +208,35 @@
     /* display: block !important; */
     transform: translateX(0);
 }
+.Customers-footer{
+    margin-top: 10px;
+    padding: 30px;
+     background-color: white;    
+     border-radius: 10px;
+    border: 1px solid #DCE1EF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Customers-footer button{
+    background-color: #2563EB;
+    border: 2px solid #2563EB;
+    border-radius: 10px;
+    padding: 7px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+.Customers-footer button svg{
+    font-size: 20px;
+
+}
+.Customers-footer button:hover{
+    background-color: transparent;
+    color: black;
+}
 @media(max-width:1100px){
     .Customers{
         margin-left: 0;
@@ -239,5 +269,35 @@
     .Customers-content-header{
         flex-direction: column;
         gap: 10px;
+    }
+}
+@media(max-width:500px){
+    .Customers-content-header{
+        flex-direction: column;
+        gap: 10px;
+     }
+     .Customers-cotent-search-btn {
+        font-size: 18px;
+     }
+     .Customers-content-search select{
+        font-size: 18px;
+     }
+     .Customers-content-search-input{
+        width: 100%;
+     }
+     .Customers-content-search-input label{
+        width: 100%;
+     }
+     .Customers-content-search-input label input {
+        width: 100%;
+     }
+}
+@media(max-width:280px){
+    .Customers-content-header h2{
+        font-size: 18px;
+    }
+    .Customers-content-search-grid{
+        flex-direction: column;
+        gap: 5px;
     }
 }

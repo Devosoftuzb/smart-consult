@@ -130,8 +130,6 @@
 .Home-table{
     width: 100%;
     margin-top: 10px;
-    overflow-y: scroll;
-    height: 400px;
 }
 .Home-table-main{
     height: 100%;
@@ -191,6 +189,38 @@ tbody tr td svg{
 .shared-class{
     display: block !important;
 }
+.Home-table-footer{
+    margin-top: 10px;
+    padding: 30px;
+     background-color: white;    
+     border-radius: 10px;
+    border: 1px solid #DCE1EF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Home-table-footer button{
+    background-color: #2563EB;
+    border: 2px solid #2563EB;
+    border-radius: 10px;
+    padding: 7px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+.Home-table-footer button svg{
+    font-size: 20px;
+
+}
+.Home-table-footer button:hover{
+    background-color: transparent;
+    color: black;
+}
+.Home-table-main-search{
+    margin-top: 10px;
+}
 @media(max-width:1360px){
     .Home-card-wrapper{
         grid-template-columns: repeat(2,1fr);
@@ -231,4 +261,28 @@ tbody tr td svg{
         flex-direction: column;
         gap: 10px;
      }
+     .Home-table-search-doc {
+        font-size: 18px;
+     }
+     .Home-table-main-search select{
+        font-size: 18px;
+     }
+     .Home-table-search-ser{
+        width: 100%;
+     }
+     .Home-table-main-search label{
+        width: 100%;
+     }
+     .Home-table-main-search label input {
+        width: 100%;
+     }
+}
+@media(max-width:280px){
+    .Home-table-header h2{
+        font-size: 18px;
+    }
+    .Home-table-search-grid{
+        flex-direction: column;
+        gap: 5px;
+    }
 }

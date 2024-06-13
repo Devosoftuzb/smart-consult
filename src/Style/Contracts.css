@@ -5,7 +5,7 @@
     margin-left: 270px;
     background-color: #F1F5F9;
     /* min-height: 100px; */
-    /* overflow: hidden; */
+    overflow: hidden;
     padding-bottom: 20px;
 }
 .Contracts-content{
@@ -207,6 +207,35 @@
     /* display: block !important; */
     transform: translateX(0);
 }
+.Contracts-footer{
+    margin-top: 10px;
+    padding: 30px;
+     background-color: white;    
+     border-radius: 10px;
+    border: 1px solid #DCE1EF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Contracts-footer button{
+    background-color: #2563EB;
+    border: 2px solid #2563EB;
+    border-radius: 10px;
+    padding: 7px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+.Contracts-footer button svg{
+    font-size: 20px;
+
+}
+.Contracts-footer button:hover{
+    background-color: transparent;
+    color: black;
+}
 @media(max-width:1100px){
     .Contracts{
         margin-left: 0;
@@ -238,5 +267,35 @@
     .Contracts-content-header{
         flex-direction: column;
         gap: 10px;
+    }
+}
+@media(max-width:500px){
+    .Contracts-content-header{
+        flex-direction: column;
+        gap: 10px;
+     }
+     .Contracts-cotent-search-btn {
+        font-size: 18px;
+     }
+     .Contracts-content-header select{
+        font-size: 18px;
+     }
+     .Contracts-content-search-input{
+        width: 100%;
+     }
+     .Contracts-content-search-input label{
+        width: 100%;
+     }
+     .Contracts-content-search-input label input {
+        width: 100%;
+     }
+}
+@media(max-width:280px){
+    .Contracts-content-header h2{
+        font-size: 18px;
+    }
+    .Contracts-content-search-grid{
+        flex-direction: column;
+        gap: 5px;
     }
 }

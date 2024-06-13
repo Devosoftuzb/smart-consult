@@ -1,6 +1,7 @@
 .ContractEdit{
     width: 100%;
     margin-left: 270px;
+    overflow: hidden;
 }
 .ContractEdit-content{
     width: 100%;

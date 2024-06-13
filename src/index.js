@@ -16,6 +16,7 @@ import Admins from './components/Admins';
 import CreateAdmins from './components/CreateAdmins';
 import AdminsEdit from './components/AdminsEdit';
 import CustomersEdit from './components/CustomersEdit';
+import CustomersProfile from './components/CustomersProfile';
 
 const appRouter = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/CustomersEdit",
         element:<CustomersEdit/>
+      },
+      {
+        path:"/CustomersProfile",
+        element:<CustomersProfile/>
       },
     
     ]

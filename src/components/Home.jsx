@@ -71,13 +71,10 @@ function Home() {
         </div>
         <div className='Home-table-wrapper'>
           <div className='Home-table-header'>
-            <h2>Последние сделки</h2>
+            <h2>Последние клиенты</h2>
           </div>
           <div className='Home-table-main'>
             <div className='Home-table-main-top'>
-              <NavLink className="Home-table-AllDocument" to="/AllDocument">
-                Смотреть всё
-              </NavLink>
               <div className='Home-table-main-search'>
                 <div className='Home-table-search-grid'>
                   <select name="" id="">
@@ -155,7 +152,7 @@ function Home() {
                       </h3>
                     </td>
                     <td>
-                    <NavLink to="/">
+                    <NavLink to="/CustomersProfile">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
                     </NavLink>
                     </td>
@@ -226,143 +223,24 @@ function Home() {
                     </NavLink>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <h3>
-                        4
-                      </h3>
-                    </td>
-                    <td>
-                      <NavLink to="/">
-                          John Doe
-                      </NavLink>
-                    </td>
-                    <td>
-                      <h3>
-                          04-06-2024
-                      </h3>
-                    </td>
-                    <td>
-                    <NavLink to="/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
-                    </NavLink>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>
-                        4
-                      </h3>
-                    </td>
-                    <td>
-                      <NavLink to="/">
-                          John Doe
-                      </NavLink>
-                    </td>
-                    <td>
-                      <h3>
-                          04-06-2024
-                      </h3>
-                    </td>
-                    <td>
-                    <NavLink to="/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
-                    </NavLink>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>
-                        4
-                      </h3>
-                    </td>
-                    <td>
-                      <NavLink to="/">
-                          John Doe
-                      </NavLink>
-                    </td>
-                    <td>
-                      <h3>
-                          04-06-2024
-                      </h3>
-                    </td>
-                    <td>
-                    <NavLink to="/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
-                    </NavLink>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>
-                        4
-                      </h3>
-                    </td>
-                    <td>
-                      <NavLink to="/">
-                          John Doe
-                      </NavLink>
-                    </td>
-                    <td>
-                      <h3>
-                          04-06-2024
-                      </h3>
-                    </td>
-                    <td>
-                    <NavLink to="/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
-                    </NavLink>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>
-                        4
-                      </h3>
-                    </td>
-                    <td>
-                      <NavLink to="/">
-                          John Doe
-                      </NavLink>
-                    </td>
-                    <td>
-                      <h3>
-                          04-06-2024
-                      </h3>
-                    </td>
-                    <td>
-                    <NavLink to="/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
-                    </NavLink>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>
-                        4
-                      </h3>
-                    </td>
-                    <td>
-                      <NavLink to="/">
-                          John Doe
-                      </NavLink>
-                    </td>
-                    <td>
-                      <h3>
-                          04-06-2024
-                      </h3>
-                    </td>
-                    <td>
-                    <NavLink to="/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
-                    </NavLink>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
+        <div className='Home-table-footer'>
+            <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></svg>
+            </button>
+            <div>
+              <span>1</span>
+              <span>/</span>
+              <span>2</span>
+            </div>
+            <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="m220.24 132.24l-72 72a6 6 0 0 1-8.48-8.48L201.51 134H40a6 6 0 0 1 0-12h161.51l-61.75-61.76a6 6 0 0 1 8.48-8.48l72 72a6 6 0 0 1 0 8.48"/></svg>
+            </button>
+          </div>
       </div>
       <div className={`Saidbar-bg ${activeClass}`} >
           <div onClick={() => toggleClass('active-class')} className='Hamburger'>
