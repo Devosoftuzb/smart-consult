@@ -19,15 +19,15 @@ function CreateContracts() {
           <button className={isActive === null ? 'ConActive' : ''}
             onClick={()=> activeCon(null)}
           >
-            1 контракт 
+            Юридическое лицо 
           </button>
           <button className={isActive === 1 ? 'ConActive' : ''}
             onClick={()=> activeCon(1)} >
-            2 контракт 
+            Физическое лицо 
           </button>
           <button  className={isActive === 2 ? 'ConActive' : ''}
             onClick={()=> activeCon(2)}>
-            3 контракт 
+            Контракт
           </button>
         </div>
        <form>

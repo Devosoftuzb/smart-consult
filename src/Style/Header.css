@@ -178,6 +178,27 @@
 .header-wrapper{
     gap: 10px;
 }
+.Saidbar_bg{
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.897);
+    z-index: 10;
+    transition: all 1s ease;
+    transform: translateX(-100%);
+}
+.Saidbar_bg_Active{
+    transform: translateX(0%) !important;
+}
+.x{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    color: white;
+    z-index: 100;
+}
+.Hamburger-header svg{
+    font-size: 35px;
+}
 @media(max-width:1100px){
     .Hamburger-header{
         display: block;

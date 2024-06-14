@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import '../Style/Saidbar.css';
+import '../Style/SaidbarHeader.css';
 import '../Style/Header.css';
 import { NavLink } from 'react-router-dom';
 import Logo from '../img/favicon.png'
-function SaidBar() {
+function SaidBarHeader() {
     const [selectLink, setSelectLink] = useState(1);
 
     const handleCategoryClick = (a) => {
         setSelectLink(a);
     };
-    return (
-        <div className={`Saidbar `}>
+  return (
+    <div className={`SaidbarHeader `}>
             <div className='saidbar-header'>
                 <img src={Logo} alt="" />
             </div>
-            <div className='Saidbar-main'>
+            <div className='SaidbarHeader-main'>
                 <nav>
                     <NavLink to="/"
                         
@@ -57,7 +57,7 @@ function SaidBar() {
             </div>
 
         </div>
-    );
+  )
 }
 
-export default SaidBar;
+export default SaidBarHeader

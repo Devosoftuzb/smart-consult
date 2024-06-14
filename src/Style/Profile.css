@@ -132,7 +132,7 @@
     border: 2px solid #DCE1EF;
     outline-color: #2563EB;
 }
-.Profile-Password form label h3{
+.Profile-Password form  h3{
     color: #4C5569;
     font-weight: 400;
     cursor: pointer;
@@ -150,12 +150,64 @@
     margin-top: 30px;
     cursor: pointer;
 }
+.modal-foto h3{
+    color: #4C5569;
+    font-weight: 400;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
 .Profile-Password form button:hover{
     background-color: transparent;
     color: #2563EB;
 }
 .Profile-Password-dn{
     display: block;
+}
+.modal-foto {
+    margin-top: 20px;
+    width: 100%;
+    cursor: pointer;
+}
+.file-input-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #2563EB;
+    border-radius: 5px;
+    background-color: #2563EB;
+    cursor: pointer;
+    color: black;
+    width: 300px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-top: 3px !important;
+}
+.file-input-container input[type=file] {
+    cursor: pointer;
+    position: absolute;
+    font-size: 100px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.file-input-container span {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    color: black;
+}
+
+.file-input-container:hover {
+    background-color: transparent;
+    color: #2563EB;
+    cursor: pointer;
+}
+.file-input-container:hover + .fotoname{
+        color: #2563EB;
 }
 @media(max-width:1200px){
     .Profile-form-grid{
