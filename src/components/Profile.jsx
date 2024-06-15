@@ -46,7 +46,7 @@ function Profile() {
                   Имя
                 </h3>
                 <input id='Name' type="text" />
-              </label>
+              </label> 
               <label id='Familiya' htmlFor="">
                 <h3>
                   Фамилия
