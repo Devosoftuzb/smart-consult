@@ -29,6 +29,11 @@ function Admins() {
                       </th>
                       <th>
                         <h3>
+                          Фото 
+                        </h3>
+                      </th>
+                      <th>
+                        <h3>
                           Имя
                         </h3>
                       </th>
@@ -60,6 +65,9 @@ function Admins() {
                           <h3>
                             1
                           </h3>
+                        </td>
+                        <td>
+                          <img src="https://static-00.iconduck.com/assets.00/person-icon-1901x2048-a9h70k71.png" alt="foto" />
                         </td>
                         <td>
                           <h3>

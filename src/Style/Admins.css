@@ -220,6 +220,11 @@
     background-color: transparent;
     color: black;
 }
+.Admins table img{
+    width: 80px;
+    display: block;
+    margin: 0 auto;
+}
 @media(max-width:1100px){
     .Admins{
         margin-left: 0;

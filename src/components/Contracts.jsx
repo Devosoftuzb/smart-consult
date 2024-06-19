@@ -102,6 +102,11 @@ function Contracts() {
                       </th>
                       <th>
                         <h3>
+                          Тип
+                        </h3>
+                      </th>
+                      <th>
+                        <h3>
                           Телефон номер
                         </h3>
                       </th>
@@ -126,7 +131,12 @@ function Contracts() {
                         </td>
                         <td>
                           <h3>
-                            John Doe
+                            SW компания
+                          </h3>
+                        </td>
+                        <td>
+                          <h3>
+                              Юридическое
                           </h3>
                         </td>
                         <td>
@@ -159,6 +169,11 @@ function Contracts() {
                         <td>
                           <h3>
                             John Doe
+                          </h3>
+                        </td>
+                        <td>
+                          <h3>
+                             Физическое
                           </h3>
                         </td>
                         <td>

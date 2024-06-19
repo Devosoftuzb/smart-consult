@@ -10,12 +10,38 @@
     justify-content: center;
     margin-top: 50px;
 }
-.CreateCustomers-content form{
+.CreateCust{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     border: 1px solid #DCE1EF;
     width: 60%
+}
+.CreateCustomers-saidbar{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 20px;
+}
+.CreateCustomers-saidbar button{
+    width: 100%;
+    padding:10px 20px;
+    background-color: white;
+    border: 1px solid #DCE1EF;
+    cursor: pointer;
+}
+.createCust_btn-active{
+    background-color: #2563EB !important;
+    color: white;
+}
+.CreateCustomers-content form{
+    width: 100%;
 }
 .CreateCustomers-content form h2{
     margin-bottom: 20px;
@@ -115,14 +141,43 @@ input[type="number"]::-webkit-inner-spin-button {
     padding: 10px 20px;
     color: #4C5569;
 }
+.CreateCustomers-saidbar{
+    width: 100%;
+
+}
+.CustCreateActive{
+    display: block;
+}
+.dn{
+    display: none;
+}
+.soz{
+    color: white !important;
+}
+.file-input-container:hover{
+    .soz{
+        color: #2563EB !important;
+    }
+}
 @media(max-width:1100px){
     .CreateCustomers{
         margin-left: 0;
     }
 }
+@media(max-width:860px){
+    .CreateCust{
+        width: 97%;
+    }
+}
 @media(max-width:900px){
     .CreateCustomers-content form{
         width: 90%;
+    }
+}
+@media(max-width:430px){
+    .CreateCustomers-saidbar{
+        flex-direction: column;
+        
     }
 }
 @media(max-width:300px){

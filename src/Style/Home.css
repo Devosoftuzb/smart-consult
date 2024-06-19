@@ -171,6 +171,9 @@ tbody tr td svg{
     color: #32373f;
     font-size:30px;
 }
+.Home tbody tr td {
+    padding:  10px 0px;
+}
 .Saidbar-bg{
     position: fixed;
     background-color: rgba(0, 0, 0, 0.705);
@@ -220,6 +223,11 @@ tbody tr td svg{
 }
 .Home-table-main-search{
     margin-top: 10px;
+}
+.Home table img{
+    width: 80px;
+    display: block;
+    margin:  0 auto;
 }
 @media(max-width:1360px){
     .Home-card-wrapper{

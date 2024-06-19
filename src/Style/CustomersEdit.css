@@ -11,11 +11,8 @@
     margin-top: 50px;
 }
 .CustomersEdit-content form{
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #DCE1EF;
-    width: 60%
+
+    width: 100%
 }
 .CustomersEdit-content form h2{
     margin-bottom: 20px;

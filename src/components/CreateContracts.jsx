@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import '../Style/CreateContracts.css';
 import Header from './Header';
-// import { CKEditor } from '@ckeditor/ckeditor5-react';
-// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-// import { Alignment } from '@ckeditor/ckeditor5-alignment';
-// import { Alignment } from '@ckeditor/ckeditor5-alignment';
+
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
 import FroalaEditorComponent from 'react-froala-wysiwyg';
 import 'froala-editor/js/froala_editor.pkgd.min.js';
-// import './style.css';
+
 
 
 function CreateContracts() {
@@ -117,7 +114,7 @@ function CreateContracts() {
              <h3 style="text-align: center;">
               10.   Адреса и банковские реквизиты сторон.
         </h3>
-        <div style="display:flex;  align-items: center;  justify-content: space-between; ">
+        <div >
           <div style="display:flex;   flex-direction: column; border: 2px solid black; padding: 5px ;" >
               <h4 style="text-align: center;">
                   Исполнитель:
@@ -277,7 +274,7 @@ function CreateContracts() {
              <h3 style="text-align: center;">
               10.   Адреса и банковские реквизиты сторон.
         </h3>
-        <div style="display:flex;   justify-content: space-between; ">
+        <div  ">
           <div style="display:flex;   flex-direction: column; border: 2px solid black; padding: 5px ;" >
               <h4 style="text-align: center;">
                   Исполнитель:
@@ -363,13 +360,13 @@ function CreateContracts() {
             </button>
             <button className={isActive === 3 ? 'ConActive' : ''}
               onClick={() => activeCon(3)}>
-              Контракт
+              Аукцион тендер
             </button>
           </div>
-          <form>
-            <h2>Создать Контракт</h2>
+          <form className={`${isActive === 1 ? "yozperson-active" : "dn"}`}>
+            <h2>Создать Контракт для Физических лиц</h2>
             <label htmlFor="name">
-              <h3>Ф.И.О</h3>
+              <h3>Названия</h3>
               <input id='name' type="text" />
             </label>
             <label htmlFor="pasport">
@@ -381,7 +378,86 @@ function CreateContracts() {
               <input id='tel' type="number" />
             </label>
             <label htmlFor="info">
-              <h3>Информация</h3>
+              <h3>Информация (банк)</h3>
+              <textarea name="" id="info"></textarea>
+            </label>
+            <button type='submit'>Создать</button>
+          </form>
+          <form className={`${isActive === 2 ? "yozperson-active" : "dn"}`}>
+            <h2>Создать Контракт для Юридических лиц </h2>
+            <label htmlFor="name">
+              <h3>Названия</h3>
+              <input id='name' type="text" />
+            </label>
+            <label htmlFor="inn">
+              <h3>ИНН</h3>
+              <input id='inn' type="number" />
+            </label>
+            <label htmlFor="tel">
+              <h3>Телефон номера</h3>
+              <input id='tel' type="number" />
+            </label>
+            <label htmlFor="bank">
+              <h3>Банк</h3>
+              <input id='bank' type="text" />
+            </label>
+            <label htmlFor="rs">
+              <h3>Р/с</h3>
+              <input id='rs' type="number" />
+            </label>
+            <label htmlFor="mfo">
+              <h3>МФО</h3>
+              <input id='mfo' type="number" />
+            </label>
+            <label htmlFor="info">
+              <h3>Адрес</h3>
+              <textarea name="" id="info"></textarea>
+            </label>
+            <button type='submit'>Создать</button>
+          </form>
+          <form className={`${isActive === 3 ? "yozperson-active" : "dn"}`}>
+            <h2>Аукцион, тендер</h2>
+            <label htmlFor="name">
+              <h3>Названия</h3>
+              <input id='name' type="text" />
+            </label>
+            <label htmlFor="nmkon">
+              <h3>Номер контракта</h3>
+              <input id='nmkon' type="number" />
+            </label>
+            <label htmlFor="data">
+              <h3>Дата контракта</h3>
+              <input
+                type="datetime-local"
+                id="meeting-time"
+                name="meeting-time"
+                value="2018-06-12T19:30"
+                min="2018-06-07T00:00"
+                max="2018-06-14T00:00"
+              />  
+            </label>
+            <label htmlFor="inn">
+              <h3>ИНН</h3>
+              <input id='inn' type="number" />
+            </label>
+            <label htmlFor="tel">
+              <h3>Телефон номера</h3>
+              <input id='tel' type="number" />
+            </label>
+            <label htmlFor="bank">
+              <h3>Банк</h3>
+              <input id='bank' type="text" />
+            </label>
+            <label htmlFor="rs">
+              <h3>Р/с</h3>
+              <input id='rs' type="number" />
+            </label>
+            <label htmlFor="mfo">
+              <h3>МФО</h3>
+              <input id='mfo' type="number" />
+            </label>
+            <label htmlFor="info">
+              <h3>Адрес</h3>
               <textarea name="" id="info"></textarea>
             </label>
             <button type='submit'>Создать</button>
@@ -410,8 +486,7 @@ function CreateContracts() {
               }}
             />
           </div>
-          <div className={`person ${isActive === 3 ? "person-cative" : "dn"}`}>
-            
+          <div className={`person ${isActive === 3 ? "fizperson-active" : "dn"}`}>
           </div>
         </div>
       </div>

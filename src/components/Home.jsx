@@ -115,6 +115,11 @@ function Home() {
                     </th>
                     <th >
                       <h3>
+                        Фото 
+                      </h3>
+                    </th>
+                    <th >
+                      <h3>
                         Имя
                       </h3>
                     </th>
@@ -138,9 +143,12 @@ function Home() {
                       </h3>
                     </td>
                     <td>
-                      <NavLink to="/">
-                          John Doe
-                      </NavLink>
+                      <img src="https://static-00.iconduck.com/assets.00/person-icon-1901x2048-a9h70k71.png" alt="foto" />
+                    </td>
+                    <td>
+                      <h3>
+                        John Doe
+                      </h3>
                     </td>
                     <td>
                       <h3>
@@ -160,9 +168,12 @@ function Home() {
                       </h3>
                     </td>
                     <td>
-                      <NavLink to="/">
-                          John Doe
-                      </NavLink>
+                      <img src="https://static-00.iconduck.com/assets.00/person-icon-1901x2048-a9h70k71.png" alt="foto" />
+                    </td>
+                    <td>
+                      <h3>
+                        John Doe
+                      </h3>
                     </td>
                     <td>
                       <h3>
@@ -170,7 +181,7 @@ function Home() {
                       </h3>
                     </td>
                     <td>
-                    <NavLink to="/">
+                    <NavLink to="/CustomersProfile">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
                     </NavLink>
                     </td>
@@ -182,9 +193,12 @@ function Home() {
                       </h3>
                     </td>
                     <td>
-                      <NavLink to="/">
-                          John Doe
-                      </NavLink>
+                      <img src="https://static-00.iconduck.com/assets.00/person-icon-1901x2048-a9h70k71.png" alt="foto" />
+                    </td>
+                    <td>
+                      <h3>
+                        John Doe
+                      </h3>
                     </td>
                     <td>
                       <h3>
@@ -192,29 +206,7 @@ function Home() {
                       </h3>
                     </td>
                     <td>
-                    <NavLink to="/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
-                    </NavLink>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h3>
-                        4
-                      </h3>
-                    </td>
-                    <td>
-                      <NavLink to="/">
-                          John Doe
-                      </NavLink>
-                    </td>
-                    <td>
-                      <h3>
-                          04-06-2024
-                      </h3>
-                    </td>
-                    <td>
-                    <NavLink to="/">
+                    <NavLink to="/CustomersProfile">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
                     </NavLink>
                     </td>

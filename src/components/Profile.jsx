@@ -46,7 +46,7 @@ function Profile() {
                   Имя
                 </h3>
                 <input id='Name' type="text" />
-              </label> 
+              </label>
               <label id='Familiya' htmlFor="">
                 <h3>
                   Фамилия
@@ -55,10 +55,10 @@ function Profile() {
               </label>
             </div>
             <div className="modal-foto">
-              <h3 className='fotoname'>Фото</h3>
-              <label className="file-input-container" htmlFor="editPhoto">
-                <span>Фото</span>
-                <input id="editPhoto"  accept="image/*" type="file" />
+              <h3>Фото</h3>
+              <label className="file-input-container" htmlFor="photo">
+                <span className='soz'>Фото</span>
+                <input id="photo" accept="image/*" type="file" />
               </label>
             </div>
             <label htmlFor="Email">

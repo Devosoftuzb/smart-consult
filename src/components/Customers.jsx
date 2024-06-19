@@ -97,6 +97,11 @@ function Customers() {
                       </th>
                       <th>
                         <h3>
+                          Фото
+                        </h3>
+                      </th>
+                      <th>
+                        <h3>
                           И.Ф.О
                         </h3>
                       </th>
@@ -125,6 +130,9 @@ function Customers() {
                           </h3>
                         </td>
                         <td>
+                          <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSikUkwyzB7VALLf0LRzaqPkoxy1ciySTvePw&s" alt="foto" />
+                        </td>
+                        <td>
                           <h3>
                             John Doe
                           </h3>
@@ -140,7 +148,10 @@ function Customers() {
                           </h3>
                         </td>
                         <td className='customers-nas'>
-                          <div>
+                        <div className='cus-grid'>
+                          <NavLink to="/CustomersProfile">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+                          </NavLink>
                           <NavLink className="customers-edit" to="/CustomersEdit">
                           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.46v3.04c0 .28.22.5.5.5h3.04c.13 0 .26-.05.35-.15L17.81 9.94l-3.75-3.75L3.15 17.1c-.1.1-.15.22-.15.36M20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75z"/></svg>
                           </NavLink>
@@ -153,8 +164,11 @@ function Customers() {
                       <tr>
                         <td>
                           <h3>
-                            1
+                            2
                           </h3>
+                        </td>
+                        <td>
+                          <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSikUkwyzB7VALLf0LRzaqPkoxy1ciySTvePw&s" alt="foto" />
                         </td>
                         <td>
                           <h3>
@@ -172,8 +186,11 @@ function Customers() {
                           </h3>
                         </td>
                         <td className='customers-nas'>
-                          <div>
-                          <NavLink className="customers-edit" to="">
+                          <div className='cus-grid'>
+                          <NavLink to="/CustomersProfile">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+                          </NavLink>
+                          <NavLink className="customers-edit" to="/CustomersEdit">
                           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.46v3.04c0 .28.22.5.5.5h3.04c.13 0 .26-.05.35-.15L17.81 9.94l-3.75-3.75L3.15 17.1c-.1.1-.15.22-.15.36M20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75z"/></svg>
                           </NavLink>
                           <button onClick={deleteModal} className='customers-delete'>
@@ -185,8 +202,11 @@ function Customers() {
                       <tr>
                         <td>
                           <h3>
-                            1
+                            3
                           </h3>
+                        </td>
+                        <td>
+                          <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSikUkwyzB7VALLf0LRzaqPkoxy1ciySTvePw&s" alt="foto" />
                         </td>
                         <td>
                           <h3>
@@ -204,40 +224,11 @@ function Customers() {
                           </h3>
                         </td>
                         <td className='customers-nas'>
-                          <div>
-                          <NavLink className="customers-edit" to="">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.46v3.04c0 .28.22.5.5.5h3.04c.13 0 .26-.05.35-.15L17.81 9.94l-3.75-3.75L3.15 17.1c-.1.1-.15.22-.15.36M20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75z"/></svg>
+                        <div className='cus-grid'>
+                          <NavLink to="/CustomersProfile">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
                           </NavLink>
-                          <button onClick={deleteModal} className='customers-delete'>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg>
-                          </button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <h3>
-                            1
-                          </h3>
-                        </td>
-                        <td>
-                          <h3>
-                            John Doe
-                          </h3>
-                        </td>
-                        <td>
-                          <h3>
-                            970206565
-                          </h3>
-                        </td>
-                        <td>
-                          <h3>
-                            27-05-2024
-                          </h3>
-                        </td>
-                        <td className='customers-nas'>
-                          <div>
-                          <NavLink className="customers-edit" to="">
+                          <NavLink className="customers-edit" to="/CustomersEdit">
                           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.46v3.04c0 .28.22.5.5.5h3.04c.13 0 .26-.05.35-.15L17.81 9.94l-3.75-3.75L3.15 17.1c-.1.1-.15.22-.15.36M20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75z"/></svg>
                           </NavLink>
                           <button onClick={deleteModal} className='customers-delete'>

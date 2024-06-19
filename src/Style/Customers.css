@@ -237,6 +237,18 @@
     background-color: transparent;
     color: black;
 }
+.Customers table img{
+    width: 70px;
+    display: block;
+    margin: 0 auto;
+}
+.cus-grid{
+    display: flex;
+    align-items: center;
+}
+.customers-edit{
+    margin: 0 10px  !important;
+}
 @media(max-width:1100px){
     .Customers{
         margin-left: 0;
