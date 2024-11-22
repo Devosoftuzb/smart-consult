@@ -18,3 +18,72 @@ a{
 li{
     list-style: none;
 }
+.block{
+    display: block;
+}
+.dnn{
+    display: none;
+}
+.Cmc-modal-bg select{
+    width: 100%;
+    padding: 10px 10px;
+    margin: 20px 0px;
+}
+input[type="date"] {
+    position: relative;
+  }
+  
+  input[type="date"]::before {
+    content: attr(placeholder);
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #aaa;
+    pointer-events: none;
+  }
+  
+  input[type="date"]:focus::before,
+  input[type="date"]:valid::before {
+    display: none;
+  }
+  input[type="datetime-local"]::-webkit-datetime-edit-ampm-field,
+  input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
+  input[type="datetime-local"]::-webkit-datetime-edit-minute-field,
+  input[type="datetime-local"]::-webkit-datetime-edit-second-field {
+    display: none;
+  }
+  
+  input[type="datetime-local"]::-moz-datetime-edit-hour-field,
+  input[type="datetime-local"]::-moz-datetime-edit-minute-field,
+  input[type="datetime-local"]::-moz-datetime-edit-second-field,
+  input[type="datetime-local"]::-moz-datetime-edit-ampm-field {
+    display: none;
+  }
+  .dnn{
+    display:none;
+  }
+
+  form select{
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  .Sassss{
+    color: white;
+  }
+  .end1{
+    width: 100% ;
+    text-align: center;
+  }
+  .end1 form{
+    width: 100%;
+  }
+  .Contracts-content-table{
+    overflow-x: scroll;
+   }
+   .Contracts-content-table table{
+    width: 1700px !important;
+   }
+   .end1 button{
+    color: white;
+   }

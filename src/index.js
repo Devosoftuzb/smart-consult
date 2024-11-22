@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Error from './components/Error';
+// import Error from './components/Error';
 import Customers from './components/Customers';
 import Home from './components/Home';
 import CreateCustomers from './components/CreateCustomers';
@@ -17,61 +17,71 @@ import CreateAdmins from './components/CreateAdmins';
 import AdminsEdit from './components/AdminsEdit';
 import CustomersEdit from './components/CustomersEdit';
 import CustomersProfile from './components/CustomersProfile';
+import Cmc from './components/Cmc';
+import Contract1 from './components/Contract1';
 
 const appRouter = createBrowserRouter([
   {
     path:"/",
     element:<App/>,
-    errorElement:<Error/>,
+    // errorElement:<Error/>,
     children:[
       {
         path:"/",
-        element:<Home/>
+        element:localStorage.getItem('token') ?  <Home/> : <Login/>
       },
       {
         path:"/Customers",
-        element:<Customers/>,
+        element: localStorage.getItem('token') ? <Customers/> : <Login/>,
       },
       {
         path:"/CreateCustomers",
-        element:<CreateCustomers/>,
+        element: localStorage.getItem('token') ? <CreateCustomers/> : <Login/>,
       },
       {
         path:"/Profile",
-        element:<Profile/>,
+        element:localStorage.getItem('token')?  <Profile/> : <Login/>,
       },
       {
         path:"/Contracts",
-        element:<Contracts/>,
+        element: localStorage.getItem('token') ? <Contracts/> : <Login/>,
       },
       {
         path:"/CreateContracts",
-        element:<CreateContracts/>
+        element: localStorage.getItem('token') ? <CreateContracts/> : <Login/>
       },
       {
-        path:"/ContractEdit",
-        element:<ContractEdit/>
+        path:"/ContractEdit/:id",
+        element: localStorage.getItem('token') ? <ContractEdit/> : <Login/>
       },
       {
         path:"/Admins",
-        element:<Admins/>
+        element:localStorage.getItem('Role') === 'SUPER-ADMIN' && localStorage.getItem('token') ? <Admins/> : <Login/>
       },
       {
         path:"/CreateAdmins",
-        element:<CreateAdmins/>
+        element: localStorage.getItem('Role') === 'SUPER-ADMIN'  && localStorage.getItem('token')  ? <CreateAdmins/> : <Login/>
       },
       {
-        path:"/AdminsEdit",
-        element:<AdminsEdit/>
+        path:"/AdminsEdit/:id",
+        element: localStorage.getItem("Role") === 'SUPER-ADMIN'  && localStorage.getItem('token')  ? <AdminsEdit/> : <Login/>
       },
       {
-        path:"/CustomersEdit",
-        element:<CustomersEdit/>
+        path:"/CustomersEdit/:id",
+        element: localStorage.getItem('token') ? <CustomersEdit/> : <Login/>
       },
       {
-        path:"/CustomersProfile",
-        element:<CustomersProfile/>
+        path:"/CustomersProfile/:id",
+        element:localStorage.getItem('token') ? <CustomersProfile/> : <Login/>
       },
+      {
+        path:"/Cmc",
+        element: localStorage.getItem('Role') === 'SUPER-ADMIN'  && localStorage.getItem('token') ? <Cmc/> : <Login/>
+      },
+      {
+        path:'/contractPr/:id',
+        element:localStorage.getItem('token') ? <Contract1/> : <Login/>
+      }
     
     ]
   },

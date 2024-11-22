@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../Style/Header.css';
 import { NavLink } from 'react-router-dom';
 import SaidBarHeader from './SaidBarHeader';
+import axios from '../Service/axios';
+import CONFIG from '../Service/config';
+
 function Header() {
 
     // ---------------------- SaidBar ------------------------- satrt
@@ -75,8 +78,33 @@ function Header() {
         };
     }, [isActive, isProfileActive]);
 
+    const [img, setImg] = useState({
+        image:''
+    })
+    const getAdmins = () =>{
+        const localId = localStorage.getItem('id')
+        axios.get(`/user/${localId}`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+              },
+        })
+        .then((response)=>{
+            setImg({
+                image:response.data.image ||  'https://media.istockphoto.com/id/1332100919/vector/man-icon-black-icon-person-symbol.jpg?s=612x612&w=0&k=20&c=AVVJkvxQQCuBhawHrUhDRTCeNQ3Jgt0K1tXjJsFy1eg='
+            })
+        })
+        .catch((error)=>{
+            if (error.response && error.response.status === 401) {
+                localStorage.removeItem('token');
+                window.location.href = '/login'; 
+            }
+        })
+    }
 
 
+useEffect(()=>{
+    getAdmins()
+},[])
 
 
     return (
@@ -90,12 +118,17 @@ function Header() {
             <div className='header-wrapper'>
                 <div className='header-search'>
                     <div  onClick={SaidbarMenu}  className='Hamburger-header'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15"><path fill="currentColor" fill-rule="evenodd" d="M1.5 3a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1zM1 7.5a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5m0 4a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5" clip-rule="evenodd"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15"><path fill="currentColor" fillRule="evenodd" d="M1.5 3a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1zM1 7.5a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5m0 4a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5" clipRule="evenodd"/></svg>
                     </div>
-                    <label htmlFor="header-search">
-                        <input id='header-search' type="text" placeholder='Искать...' />
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14" /></svg>
-                    </label>
+                    <div>
+
+                    </div>
+                    <div>
+
+                    </div>
+                    <div>
+                        
+                    </div>
                     <div className='header-serch-btn-wrapper'>
                         <button
                             ref={buttonRef}
@@ -115,10 +148,10 @@ function Header() {
                         </div>
                         <div ref={modalRef} className={`header-search-active-modal ${isActive ? 'ModalActive' : ''}`}>
                             <nav>
-                                <NavLink to="/CreateCustomers">
+                                {/* <NavLink to="/CreateCustomers">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4m0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4" /></svg>
                                     <span>Клиент</span>
-                                </NavLink>
+                                </NavLink> */}
                                 <NavLink to="/CreateContracts">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M428 224H288a48 48 0 0 1-48-48V36a4 4 0 0 0-4-4h-92a64 64 0 0 0-64 64v320a64 64 0 0 0 64 64h224a64 64 0 0 0 64-64V228a4 4 0 0 0-4-4"/><path fill="currentColor" d="M419.22 188.59L275.41 44.78a2 2 0 0 0-3.41 1.41V176a16 16 0 0 0 16 16h129.81a2 2 0 0 0 1.41-3.41"/></svg>
                                     <span>Контракты</span>
@@ -134,7 +167,7 @@ function Header() {
                         onMouseEnter={ProfileHover1}
                         onMouseLeave={ProfileHover2}
                         className='header-acount'>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH6vYUb0RXepzhbzyQskZEsKRB1tWbQ_j2PFQjtDLvcCH_xEXFGK4YqwxG1S2_ljoj5RU&usqp=CAU" alt="foto" />
+                        <img src={CONFIG.API_URL + img.image} alt="Profile" onError={(e) => { e.target.onerror = null; e.target.src = 'https://media.istockphoto.com/id/1332100919/vector/man-icon-black-icon-person-symbol.jpg?s=612x612&w=0&k=20&c=AVVJkvxQQCuBhawHrUhDRTCeNQ3Jgt0K1tXjJsFy1eg=' }} />
                     </div>
                     <div className={`header-profile-modal ${isHoverdedProfile ? 'header-profile-modal-active' : ''}`}>
                         <span>

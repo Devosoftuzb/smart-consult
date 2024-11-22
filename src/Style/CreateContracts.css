@@ -23,6 +23,11 @@
 .CreateContracts2{
     width: 50%;
 }
+.grid_inp{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .CreateContracts-content form h2{
     margin-bottom: 20px;
     color: #4C5569;
@@ -96,6 +101,7 @@ input[type="number"]::-webkit-inner-spin-button {
     align-items: center;
     margin-bottom: 20px;
 }
+
 .CreateContract-saidbar button{
     width: 100%;
     padding:10px 20px;
@@ -134,6 +140,43 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .person-cative{
     display: block;
+}
+.CreateContract__foto{
+    width: 100%;
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+.CreateContract__foto .modal-foto label{
+    width: 100%;
+}
+.CreateContract__foto__number{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+.CreateContract__foto__number span{
+    font-weight: bold;
+    font-size: 20px;
+}
+.CreateContract__foto__preview button{
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #2563EB;
+    padding: 10px 20px;
+    background-color: #2563EB;
+    color: white;
+    font-size: 15px;
+    transition: 0.5s;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.CreateContract__foto__preview button:hover{
+    background-color: transparent;
+    color: #2563EB;
 }
 @media(max-width:400px){
     .CreateContract-saidbar{
