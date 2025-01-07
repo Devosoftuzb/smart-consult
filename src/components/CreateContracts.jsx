@@ -383,7 +383,7 @@ function CreateContracts() {
     const newData = {
       name: String(name),
       passport_series: String(Passport),
-      phone_number: '+998' + String(tel),
+      phone_number: String(tel),
       contract_date: String(Sana),
       info_bank: String(bank),
       info_address: String(address),
@@ -466,7 +466,7 @@ function CreateContracts() {
     const newData = {
       name: name,
       passport_series: Passport,
-      phone_number: '+998' + tel,
+      phone_number:  tel,
       contract_date: Sana,
       info_bank: bank,
       info_address: address,
@@ -545,7 +545,7 @@ function CreateContracts() {
     const newData = {
       name: name,
       passport_series: Passport,
-      phone_number: '+998' + tel,
+      phone_number: tel,
       contract_date: Sana,
       info_bank: bank,
       info_address: address,
@@ -1036,7 +1036,7 @@ function CreateContracts() {
             <label htmlFor="name">
               <h3>Ф.И.О (Заказчик)</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 id='name' type="text" />
@@ -1044,7 +1044,7 @@ function CreateContracts() {
             <label htmlFor="title">
               <h3>Наименование обекта</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 id='title' type="text" />
@@ -1052,7 +1052,7 @@ function CreateContracts() {
             <label htmlFor="adres">
               <h3>Информация (Адрес)</h3>
               <textarea
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 name="" id="adres"></textarea>
@@ -1060,7 +1060,7 @@ function CreateContracts() {
             <label htmlFor="adres2">
               <h3>Адрес заказчика</h3>
               <textarea
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={address2}
                 onChange={(e) => setAddress2(e.target.value)}
                 name="" id="adres2"></textarea>
@@ -1108,7 +1108,7 @@ function CreateContracts() {
             <label htmlFor="price">
               <h3>Денежное вознаграждение</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 id='price' type="number" />
@@ -1116,7 +1116,7 @@ function CreateContracts() {
             <label htmlFor="ppinfo">
               <h3>Денежное вознаграждение (словах)</h3>
               <textarea
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={priceText}
                 onChange={(e) => setPriceText(e.target.value)}
                 name="" id="ppinfo"></textarea>
@@ -1124,7 +1124,7 @@ function CreateContracts() {
             <label htmlFor="pasport">
               <h3>Серия паспорта</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={Passport}
                 onChange={(e) => setPassport(e.target.value)}
                 id='pasport' type="text" />
@@ -1132,16 +1132,34 @@ function CreateContracts() {
             <label htmlFor="tel">
               <h3>Телефон номера</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
-                placeholder="+998"
                 value={tel}
-                onChange={(e) => setTel(e.target.value)}
-                id='tel' type="number" />
+                onChange={(e) => {
+                  const input = e.target.value;
+
+                  // Проверяем, что значение начинается с "+998"
+                  if (!input.startsWith("+998")) {
+                    setTel("+998");
+                    return;
+                  }
+
+                  // Оставляем только цифры после "+998"
+                  const numericPart = input.slice(4).replace(/\D/g, ""); // Убираем все нецифровые символы
+                  setTel("+998" + numericPart);
+                }}
+                onKeyDown={(e) => {
+                  // Блокируем удаление префикса "+998"
+                  if (tel.length <= 4 && (e.key === "Backspace" || e.key === "Delete")) {
+                    e.preventDefault();
+                  }
+                }}
+                id="tel"
+                type="text" // Используем "text" вместо "number", чтобы поддерживать "+"
+              />
             </label>
             <label htmlFor="data">
               <h3>Дата контракта</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={Sana}
                 onChange={(e) => setSana(e.target.value)}
                 // type="datetime-local"
@@ -1178,7 +1196,7 @@ function CreateContracts() {
             <label htmlFor="name">
               <h3>Заказчик</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 id='name' type="text" />
@@ -1186,7 +1204,7 @@ function CreateContracts() {
             <label htmlFor="title">
               <h3>Наименование обекта</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 id='title' type="text" />
@@ -1194,7 +1212,7 @@ function CreateContracts() {
             <label htmlFor="bank">
               <h3>Информация (адрес)</h3>
               <textarea
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 name="" id="bank"></textarea>
@@ -1202,7 +1220,7 @@ function CreateContracts() {
             <label htmlFor="adres2">
               <h3>Адрес заказчика</h3>
               <textarea
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={address2}
                 onChange={(e) => setAddress2(e.target.value)}
                 name="" id="adres2"></textarea>
@@ -1250,7 +1268,7 @@ function CreateContracts() {
             <label htmlFor="price">
               <h3>Денежное вознаграждение</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 id='price' type="number" />
@@ -1258,7 +1276,7 @@ function CreateContracts() {
             <label htmlFor="ppinfo">
               <h3>Денежное вознаграждение (словах)</h3>
               <textarea
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={priceText}
                 onChange={(e) => setPriceText(e.target.value)}
                 name="" id="ppinfo"></textarea>
@@ -1266,7 +1284,7 @@ function CreateContracts() {
             <label htmlFor="pasport">
               <h3>Серия паспорта</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={Passport}
                 onChange={(e) => setPassport(e.target.value)}
                 id='pasport' type="text" />
@@ -1274,7 +1292,7 @@ function CreateContracts() {
             <label htmlFor="inn">
               <h3>ИНН</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={inn}
                 onChange={(e) => setInn(e.target.value)}
                 id='inn' type="number" />
@@ -1282,16 +1300,35 @@ function CreateContracts() {
             <label htmlFor="tel">
               <h3>Телефон номера</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
-                placeholder="+998"
                 value={tel}
-                onChange={(e) => setTel(e.target.value)}
-                id='tel' type="number" />
+                onChange={(e) => {
+                  const input = e.target.value;
+
+                  // Проверяем, что значение начинается с "+998"
+                  if (!input.startsWith("+998")) {
+                    setTel("+998");
+                    return;
+                  }
+
+                  // Оставляем только цифры после "+998"
+                  const numericPart = input.slice(4).replace(/\D/g, ""); // Убираем все нецифровые символы
+                  setTel("+998" + numericPart);
+                }}
+                onKeyDown={(e) => {
+                  // Блокируем удаление префикса "+998"
+                  if (tel.length <= 4 && (e.key === "Backspace" || e.key === "Delete")) {
+                    e.preventDefault();
+                  }
+                }}
+                id="tel"
+                type="text" // Используем "text" вместо "number", чтобы поддерживать "+"
+              />
+
             </label>
             <label htmlFor="rs">
               <h3>Р/с</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={rs}
                 onChange={(e) => setRs(e.target.value)}
                 id='rs' type="number" />
@@ -1299,7 +1336,7 @@ function CreateContracts() {
             <label htmlFor="mfo">
               <h3>МФО</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={mfo}
                 onChange={(e) => setMfo(e.target.value)}
                 id='mfo' type="number" />
@@ -1307,7 +1344,7 @@ function CreateContracts() {
             <label htmlFor="data">
               <h3>Дата контракта</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={Sana}
                 onChange={(e) => setSana(e.target.value)}
                 type="datetime-local"
@@ -1318,7 +1355,7 @@ function CreateContracts() {
             <label htmlFor="oked">
               <h3>ОКЭД</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={oked}
                 onChange={(e) => setOked(e.target.value)}
                 id='oked' type="number" />
@@ -1326,20 +1363,20 @@ function CreateContracts() {
             <label htmlFor="info">
               <h3>Информация (банк)</h3>
               <textarea
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={bank}
                 onChange={(e) => setBank(e.target.value)}
                 name="" id="info"></textarea>
             </label>
             <button type='submit'>Создать</button>
           </form>
-          <form onKeyDown={(e)=>preventEnterSubmit(e)} className={`${isActive === 3 ? "yozperson-active" : "dn"}`} onSubmit={createContract3}>
+          <form onKeyDown={(e) => preventEnterSubmit(e)} className={`${isActive === 3 ? "yozperson-active" : "dn"}`} onSubmit={createContract3}>
             <h2>Аукцион тендер</h2>
 
             <label htmlFor="name">
               <h3>Заказчик</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 id='name' type="text" />
@@ -1347,7 +1384,7 @@ function CreateContracts() {
             <label htmlFor="title">
               <h3>Наименование обекта</h3>
               <input
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 id='title' type="text" />
@@ -1355,7 +1392,7 @@ function CreateContracts() {
             <label htmlFor="bank">
               <h3>Информация (адрес)</h3>
               <textarea
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 name="" id="bank"></textarea>
@@ -1363,7 +1400,7 @@ function CreateContracts() {
             <label htmlFor="adres2">
               <h3>Адрес заказчика</h3>
               <textarea
-                onKeyDown={(e)=>preventEnterSubmit(e)}
+                onKeyDown={(e) => preventEnterSubmit(e)}
                 value={address2}
                 onChange={(e) => setAddress2(e.target.value)}
                 name="" id="adres2"></textarea>
@@ -1439,10 +1476,30 @@ function CreateContracts() {
             <label htmlFor="tel">
               <h3>Телефон номера</h3>
               <input
-                placeholder="+998"
                 value={tel}
-                onChange={(e) => setTel(e.target.value)}
-                id='tel' type="number" />
+                onChange={(e) => {
+                  const input = e.target.value;
+
+                  // Проверяем, что значение начинается с "+998"
+                  if (!input.startsWith("+998")) {
+                    setTel("+998");
+                    return;
+                  }
+
+                  // Оставляем только цифры после "+998"
+                  const numericPart = input.slice(4).replace(/\D/g, ""); // Убираем все нецифровые символы
+                  setTel("+998" + numericPart);
+                }}
+                onKeyDown={(e) => {
+                  // Блокируем удаление префикса "+998"
+                  if (tel.length <= 4 && (e.key === "Backspace" || e.key === "Delete")) {
+                    e.preventDefault();
+                  }
+                }}
+                id="tel"
+                type="text" // Используем "text" вместо "number", чтобы поддерживать "+"
+              />
+
             </label>
             <label htmlFor="rs">
               <h3>Р/с</h3>
