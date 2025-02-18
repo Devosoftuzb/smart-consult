@@ -13,7 +13,7 @@ function Profile() {
     name: '',
     email: '',
     image: '',
-    password:''
+    password: ''
   });
 
   const handleButtonClick = (buttonId) => {
@@ -34,7 +34,7 @@ function Profile() {
           email: response.data.email,
         });
         setEditItem({
-          password:response.data.password,
+          password: response.data.password,
           name: response.data.name,
           email: response.data.email,
           image: response.data.image || 'https://media.istockphoto.com/id/1332100919/vector/man-icon-black-icon-person-symbol.jpg?s=612x612&w=0&k=20&c=AVVJkvxQQCuBhawHrUhDRTCeNQ3Jgt0K1tXjJsFy1eg=',
@@ -43,8 +43,8 @@ function Profile() {
       .catch((error) => {
         if (error.response && error.response.status === 401) {
           localStorage.removeItem('token');
-          window.location.href = '/login'; 
-      }
+          window.location.href = '/login';
+        }
       });
   };
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -78,7 +78,7 @@ function Profile() {
           gravity: "top", // `top` or `bottom`
           position: "right", // `left`, `center` or `right`
           backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-      }).showToast();
+        }).showToast();
       })
       .catch((error) => {
         Toastify({
@@ -87,15 +87,15 @@ function Profile() {
           gravity: "top",
           position: "right",
           backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
-      }).showToast();
-      if (error.response && error.response.status === 401) {
-        localStorage.removeItem('token');
-        window.location.href = '/login'; 
-    }
+        }).showToast();
+        if (error.response && error.response.status === 401) {
+          localStorage.removeItem('token');
+          window.location.href = '/login';
+        }
       });
 
   };
-  const editAdminsPassword =(e) =>{
+  const editAdminsPassword = (e) => {
     e.preventDefault();
     if (editItem.password !== confirmPassword) {
       console.log("Пароль не совпадают ");
@@ -104,7 +104,7 @@ function Profile() {
     const localId = localStorage.getItem('id');
     const formData = new FormData();
     formData.append('password', editItem.password);
-    axios.put(`/user/${localId}`, formData,{
+    axios.put(`/user/${localId}`, formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'multipart/form-data',
@@ -117,8 +117,8 @@ function Profile() {
       .catch((error) => {
         if (error.response && error.response.status === 401) {
           localStorage.removeItem('token');
-          window.location.href = '/login'; 
-      }
+          window.location.href = '/login';
+        }
       });
   }
   const postFoto = (event) => {
@@ -128,7 +128,12 @@ function Profile() {
   useEffect(() => {
     getAdmins();
   }, []);
-
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('id');
+    window.location.href = '/login';
+  };
+  
   return (
     <div className='Profile'>
       <Header />
@@ -152,6 +157,11 @@ function Profile() {
               >
                 Изменить пароль
               </li>
+              <li onClick={logout} style={{ cursor: 'pointer', color: 'red' }}>
+                Выйти
+              </li>
+
+
             </ul>
           </div>
         </div>
@@ -161,7 +171,7 @@ function Profile() {
             <div className='Profile-form-grid'>
               <label htmlFor="Name">
                 <h3>Имя</h3>
-                <input id='Name' type="text" 
+                <input id='Name' type="text"
                   value={editItem.name}
                   onChange={(e) => setEditItem({ ...editItem, name: e.target.value })}
                 />
@@ -191,15 +201,15 @@ function Profile() {
             <label htmlFor="NewPassword">
               <h3>Новый пароль</h3>
               <input
-               onChange={(e) => setEditItem({ ...editItem, password: e.target.value })}
-              type="text" id="NewPassword" />
+                onChange={(e) => setEditItem({ ...editItem, password: e.target.value })}
+                type="text" id="NewPassword" />
             </label>
             <label htmlFor="ConfirmPassword">
 
               <h3>Повторите новый пароль</h3>
-              <input 
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              type="text" id="ConfirmPassword" />
+              <input
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                type="text" id="ConfirmPassword" />
             </label>
             <button type='submit'>Сохранить</button>
           </form>

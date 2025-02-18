@@ -470,6 +470,7 @@ function CreateContracts() {
       contract_date: Sana,
       info_bank: bank,
       info_address: address,
+      address:address2,
       inn: inn,
       rs: rs,
       mfo: mfo,
@@ -549,6 +550,7 @@ function CreateContracts() {
       contract_date: Sana,
       info_bank: bank,
       info_address: address,
+      address:address2,
       inn: inn,
       rs: rs,
       mfo: mfo,
@@ -766,7 +768,7 @@ function CreateContracts() {
                   Заказчик:${name ? `«${name}»` : "«_______»"}
               </h4>
               <p>
-                Адрес:${address ? `«${address}»` : "«_______»"}
+                Адрес:${address2 ? `«${address2}»` : "«_______»"}
               </p>
               <p>
                тел:${tel ? `«${tel}»` : "«_______»"}
@@ -921,7 +923,7 @@ function CreateContracts() {
                   ООО ${name ? `«${name}»` : "«_______»"}
               </h4>
               <p>
-             Адрес:${address ? `«${address}»` : "«_______»"}
+             Адрес:${address2 ? `«${address2}»` : "«_______»"}
               </p>
               <p>
                 тел:${tel ? `«${tel}»` : "«_______»"}
@@ -941,7 +943,7 @@ function CreateContracts() {
         </div>
         </div>
      `)
-  }, [name, address, tel, Passport, bank, Sana, mfo, title, target, prf, price, oked, priceText,]);
+  }, [name, address, tel, Passport, bank, Sana, mfo, title, target, prf, price, oked, priceText,address2]);
 
   const [files, setFiles] = useState([]);
 

@@ -94,7 +94,7 @@ function Contracts() {
       },
     })
       .then((response) => {
-        const sortedData = response.data.sort((a, b) => new Date(a.contract_date) - new Date(b.contract_date));
+        const sortedData = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setData(sortedData);
         setTableData(response.data);
         console.log(response.data.create_user.name);

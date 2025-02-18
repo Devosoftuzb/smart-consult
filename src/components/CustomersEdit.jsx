@@ -113,22 +113,20 @@ function CustomersEdit() {
                                     id='passport' type="text" />
                             </label>
                             <label htmlFor="Tel">
-                                <h3>
-                                    Номер телефона
-                                </h3>
+                                <h3>Номер телефона</h3>
                                 <input
-                                    value={editItem?.phone_number}
+                                    value={editItem.phone_number || ''} // undefined bo‘lsa, bo‘sh string qo‘yiladi
                                     onChange={(e) => {
-                                        const value = e.target.value;
-                                        // Разрешаем только "+" в начале и цифры
-                                        if (/^\+?[0-9]*$/.test(value)) {
-                                            setEditItem({ ...editItem, phone_number: value });
+                                        const value = e.target.value.trim(); // Trim qilib yuborish
+                                        if (/^\+?[0-9]*$/.test(value)) { // "+" va raqamlarni tekshirish
+                                            setEditItem(prevState => ({ ...prevState, phone_number: value }));
                                         }
                                     }}
                                     id="Tel"
                                     type="text"
                                 />
                             </label>
+
 
                             {/* <label htmlFor="info">
                                 <h3>Адрес</h3>

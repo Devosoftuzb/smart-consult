@@ -14,7 +14,9 @@ import "toastify-js/src/toastify.css";
 
 function ContractEdit() {
 
- 
+
+  const [content, setContent] = useState('');
+  const [content2, setContent2] = useState('');
 
 
 
@@ -43,10 +45,11 @@ function ContractEdit() {
       .catch((error) => {
         if (error.response && error.response.status === 401) {
           localStorage.removeItem('token');
-          window.location.href = '/login'; 
-      }
+          window.location.href = '/login';
+        }
       })
   }
+
   // const [selectedFile, setSelectedFile] = useState(null);
   const [editItem, setEditItem] = useState({
     id: '',
@@ -60,35 +63,37 @@ function ContractEdit() {
     inn: '',
     rs: '',
     mfo: '',
-    html:'',
-    title:'',
-    description:''
+    title: '',
+    description: '',
+    address: ""
   })
-
   const editContract = (e) => {
     e.preventDefault();
-  
+
     const data = {
       name: editItem.name,
       passport_series: editItem.passport_series,
       contract_date: editItem.contract_date,
       info_address: editItem.info_address,
+      address: editItem.address,
       info_bank: String(editItem.info_bank),
       phone_number: String(editItem.phone_number),
       inn: editItem.inn,
       rs: String(editItem.rs),
       mfo: String(editItem.mfo),
-      html: editItem.html,
+      html: content !== '' ? content : content2, // To'g'ri shart
       title: editItem.title,
       description: editItem.description,
       price_info: editItem.price_info,
       price: editItem.price,
       price_text: editItem.price_text,
       oked: editItem.oked,
-      id_one:editItem.id_one,
-      id_two:editItem.id_two
+      id_one: editItem.id_one,
+      id_two: editItem.id_two
     };
-  
+    
+    console.log("Data to be sent:", data.html);
+
     axios.put(`/contract/${editItem.id}`, data, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -99,32 +104,31 @@ function ContractEdit() {
         Toastify({
           text: "Изменено",
           duration: 3000,
-          gravity: "top", 
+          gravity: "top",
           position: "right",
           backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
         }).showToast();
-       
+
       })
       .catch((error) => {
         Toastify({
           text: "Ошибка",
           duration: 3000,
-          gravity: "top", 
+          gravity: "top",
           position: "right",
           backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
         }).showToast();
         if (error.response && error.response.status === 401) {
           localStorage.removeItem('token');
-          window.location.href = '/login'; 
-      }
+          window.location.href = '/login';
+        }
       });
   };
-  
+
   // const postFoto = (event) => {
   //   setSelectedFile(event.target.files[0]);
   // };
-  const [content, setContent] = useState(editItem.html);
-  const [content2, setContent2] = useState(editItem.html);
+ 
   useEffect(() => {
     getCategory()
     const getContract = () => {
@@ -141,26 +145,26 @@ function ContractEdit() {
         .catch((error) => {
           if (error.response && error.response.status === 401) {
             localStorage.removeItem('token');
-            window.location.href = '/login'; 
-        }
+            window.location.href = '/login';
+          }
         })
     }
     getContract()
 
 
 
-    
-  }, [id ,])
+
+  }, [id,])
 
   const handleModelChange = (newContent) => {
-    setContent( newContent);
+    setContent(newContent);
   };
-  
+
   const handleModelChange2 = (newContent2) => {
     setContent2(newContent2);
   };
   useEffect(() => {
-    setContent(`
+    const newContent = `
       <h2 style="text-align: center;">
           Д О Г О В О Р    № ${editItem.id_one} / ${editItem.id_two} Ф
       </h2>
@@ -181,7 +185,7 @@ function ContractEdit() {
       <p>
         2.1.По возмездному договору на оценку объекта оценки, Исполнитель обязуется по поручению Заказчика, осуществить консультирование Заказчика по определению стоимости (оценки) имущества (объекта оценки) указанных в п.2.2. настоящего договора, а Заказчик обязуется оплатить оценку или производственные работы (услуги).
         2.2.Наименование объекта оценки: <span>«${editItem.title}»</span>
-        2.3.Расположенного по адресу: <span>«${editItem.address}»</span>
+        2.3.Расположенного по адресу: <span>«${editItem.info_address}»</span>
         2.4.Цель оценки:   «${editItem.description}»   
         2.5.Вид определяемой стоимости:«${editItem.price_info}»  
         2.6.В случае необходимости дополнительных проработок по комплексу оценочных работ - предмету Договора, внесения изменений и уточнения по инициативе Заказчика или иным объективным причинам, включая изменения и установления дополнительных регламентирующих условий, обуславливаемых нормативными актами, требованиями органов государственного надзора или иных компетентных юридических и физических лиц, составляется Дополнительное соглашение к данному Договору или новый Договор, учитывающие изменение трудоемкости.
@@ -305,8 +309,8 @@ function ContractEdit() {
             </p>
         </div>
       </div>
-  `);
-  setContent2(`
+  `;
+    const newContent2 = `
       <h2 style="text-align: center;">
           Д О Г О В О Р   ${editItem.id_one} / ${editItem.id_two}  Ю
       </h2>
@@ -328,7 +332,7 @@ function ContractEdit() {
       <p>
          2.1.По возмездному договору на оценку объекта оценки, Исполнитель обязуется по поручению Заказчика, осуществить консультирование Заказчика по определению стоимости (оценки) имущества (объекта оценки) указанных в п.2.2. настоящего договора, а Заказчик обязуется оплатить оценку или производственные работы (услуги).
         2.2.Наименование объекта оценки:  <span>«${editItem.title}»</span>
-        2.3.Расположенного по адресу:  <span>«${editItem.address}»</span>
+        2.3.Расположенного по адресу:  <span>«${editItem.info_address}»</span>
         2.4.Цель оценки: «${editItem.description}» 
         2.5.Вид определяемой стоимости:«${editItem.price_info}»  
         2.6.В случае необходимости дополнительных проработок по комплексу оценочных работ - предмету Договора, внесения изменений и уточнения по инициативе Заказчика или иным объективным причинам, включая изменения и установления дополнительных регламентирующих условий, обуславливаемых нормативными актами, требованиями органов государственного надзора или иных компетентных юридических и физических лиц, составляется Дополнительное соглашение к данному Договору или новый Договор, учитывающие изменение трудоемкости.
@@ -469,34 +473,37 @@ function ContractEdit() {
             </p>
         </div>
       </div>
-  `)
-  }, [editItem.title, editItem.address, editItem.phone_number, editItem.passport_series, editItem.info_bank, editItem.name,editItem.contract_date, editItem.description,editItem.price_info, editItem.price, editItem.price_text, editItem.inn, editItem.mfo, editItem.oked, editItem.id_one, editItem.id_two]);
-  
+  `
+    setContent(newContent);
+    setContent2(newContent2);
+
+  }, [editItem]);
+  const formattedAddress = editItem?.address ? editItem?.address.split(' ').join(' ') : '';
   return (
     <div className='ContractEdit'>
       <Header />
       <div className='ContractEdit-content'>
         <div className='CreateContracts2'>
           <div className='CreateContract-saidbar'>
-          {category
-          .filter((item) => item.id === isActive) // Display only the active category button
-          .map((item) => (
-            <button
-              key={item.id}
-              className={isActive === item.id ? 'ConActive' : ''}
-              onClick={() => activeCon(item.id)}
-            >
-              {item.name}
-            </button>
-          ))}
+            {category
+              .filter((item) => item.id === isActive) // Display only the active category button
+              .map((item) => (
+                <button
+                  key={item.id}
+                  className={isActive === item.id ? 'ConActive' : ''}
+                  onClick={() => activeCon(item.id)}
+                >
+                  {item.name}
+                </button>
+              ))}
           </div>
           <form className={`${isActive === 1 ? "yozperson-active" : "dn"}`} onSubmit={editContract}>
             <h2>Изменить Контракт для Физических лиц</h2>
             <label htmlFor="data">
               <h3>Дата контракта</h3>
               <input
-              value={editItem.contract_date}
-              onChange={(e)=> setEditItem({...editItem, contract_date:e.target.value})}
+                value={editItem.contract_date}
+                onChange={(e) => setEditItem({ ...editItem, contract_date: e.target.value })}
                 type="datetime-local"
                 id="meeting-time"
                 name="meeting-time"
@@ -504,45 +511,55 @@ function ContractEdit() {
             </label>
             <label htmlFor="title">
               <h3>Наименование обекта</h3>
-              <input 
-              value={editItem.title}
-              onChange={(e)=> setEditItem({...editItem, title:e.target.value})}
-              id='title' type="text" />
+              <input
+                value={editItem.title}
+                onChange={(e) => setEditItem({ ...editItem, title: e.target.value })}
+                id='title' type="text" />
             </label>
             <label htmlFor="iinfo">
               <h3>Цель оценки</h3>
               <textarea
-              value={editItem.description}
-              onChange={(e)=> setEditItem({...editItem, description:e.target.value})}
-              name="" id="iinfo"></textarea>
+                value={editItem.description}
+                onChange={(e) => setEditItem({ ...editItem, description: e.target.value })}
+                name="" id="iinfo"></textarea>
             </label>
             <label htmlFor="ppinfo">
               <h3>Вид определяемой стоимости</h3>
               <textarea
-              value={editItem.price_info}
-              onChange={(e)=>setEditItem({...editItem, price_info:e.target.value})}
-              name="" id="ppinfo"></textarea>
+                value={editItem.price_info}
+                onChange={(e) => setEditItem({ ...editItem, price_info: e.target.value })}
+                name="" id="ppinfo"></textarea>
             </label>
             <label htmlFor="price">
               <h3>Денежное вознаграждение</h3>
               <input
-              value={editItem.price}
-              onChange={(e)=>setEditItem({...editItem, price:e.target.value})}
-              id='price' type="number" />
+                value={editItem.price}
+                onChange={(e) => setEditItem({ ...editItem, price: e.target.value })}
+                id='price' type="number" />
             </label>
             <label htmlFor="ppinfo">
               <h3>Денежное вознаграждение (словах)</h3>
               <textarea
-              value={editItem.price_text}
-              onChange={(e)=>setEditItem({...editItem, price_text:e.target.value})}
-              name="" id="ppinfo"></textarea>
+                value={editItem.price_text}
+                onChange={(e) => setEditItem({ ...editItem, price_text: e.target.value })}
+                name="" id="ppinfo"></textarea>
             </label>
             <label htmlFor="adres">
               <h3>Информация (Адрес)</h3>
               <textarea
-              value={editItem.info_address}
-              onChange={(e)=> setEditItem({...editItem, info_address:e.target.value})}
-              name="" id="adres"></textarea>
+                value={editItem.info_address}
+                onChange={(e) => setEditItem({ ...editItem, info_address: e.target.value })}
+                name="" id="adres"></textarea>
+            </label>
+            <label htmlFor="adres2">
+              <h3>Адрес заказчика</h3>
+              <textarea
+                style={{
+                  wordSpacing: '10px', // Bu `textarea` uchun ishlamaydi, lekin ko'rinishni yaxshilash uchun qo'yilgan
+                }}
+                value={formattedAddress}
+                onChange={(e) => setEditItem({ ...editItem, address: e.target.value })}
+                name="" id="adres2"></textarea>
             </label>
             <button type='submit'>Изменить</button>
           </form>
@@ -551,64 +568,64 @@ function ContractEdit() {
             <label htmlFor="inn">
               <h3>ИНН</h3>
               <input
-              value={editItem.inn}
-              onChange={(e)=> setEditItem({...editItem,inn:e.target.value})}
-              id='inn' type="number" />
+                value={editItem.inn}
+                onChange={(e) => setEditItem({ ...editItem, inn: e.target.value })}
+                id='inn' type="number" />
             </label>
             <label htmlFor="title">
               <h3>Наименование обекта</h3>
-              <input 
-              value={editItem.title}
-              onChange={(e)=> setEditItem({...editItem, title:e.target.value})}
-              id='title' type="text" />
+              <input
+                value={editItem.title}
+                onChange={(e) => setEditItem({ ...editItem, title: e.target.value })}
+                id='title' type="text" />
             </label>
             <label htmlFor="iinfo">
               <h3>Цель оценки</h3>
               <textarea
-              value={editItem.description}
-              onChange={(e)=> setEditItem({...editItem, description:e.target.value})}
-              name="" id="iinfo"></textarea>
+                value={editItem.description}
+                onChange={(e) => setEditItem({ ...editItem, description: e.target.value })}
+                name="" id="iinfo"></textarea>
             </label>
             <label htmlFor="ppinfo">
               <h3>Вид определяемой стоимости</h3>
               <textarea
-              value={editItem.price_info}
-              onChange={(e)=>setEditItem({...editItem, price_info:e.target.value})}
-              name="" id="ppinfo"></textarea>
+                value={editItem.price_info}
+                onChange={(e) => setEditItem({ ...editItem, price_info: e.target.value })}
+                name="" id="ppinfo"></textarea>
             </label>
             <label htmlFor="price">
               <h3>Денежное вознаграждение</h3>
               <input
-              value={editItem.price}
-              onChange={(e)=>setEditItem({...editItem, price:e.target.value})}
-              id='price' type="number" />
+                value={editItem.price}
+                onChange={(e) => setEditItem({ ...editItem, price: e.target.value })}
+                id='price' type="number" />
             </label>
             <label htmlFor="ppinfo">
               <h3>Денежное вознаграждение (словах)</h3>
               <textarea
-              value={editItem.price_text}
-              onChange={(e)=>setEditItem({...editItem, price_text:e.target.value})}
-              name="" id="ppinfo"></textarea>
+                value={editItem.price_text}
+                onChange={(e) => setEditItem({ ...editItem, price_text: e.target.value })}
+                name="" id="ppinfo"></textarea>
             </label>
             <label htmlFor="rs">
               <h3>Р/с</h3>
               <input
-              value={editItem.rs}
-              onChange={(e)=> setEditItem({...editItem, rs:e.target.value})}
-              id='rs' type="number" />
+                value={editItem.rs}
+                onChange={(e) => setEditItem({ ...editItem, rs: e.target.value })}
+                id='rs' type="number" />
             </label>
             <label htmlFor="mfo">
               <h3>МФО</h3>
               <input
-              value={editItem.mfo}
-              onChange={(e)=> setEditItem({...editItem, mfo:e.target.value})}
-              id='mfo' type="number" />
+                value={editItem.mfo}
+                onChange={(e) => setEditItem({ ...editItem, mfo: e.target.value })}
+                id='mfo' type="number" />
             </label>
             <label htmlFor="data">
               <h3>Дата контракта</h3>
               <input
-              value={editItem.contract_date}
-              onChange={(e)=> setEditItem({...editItem, contract_date:e.target.value})}
+                value={editItem.contract_date}
+                onChange={(e) => setEditItem({ ...editItem, contract_date: e.target.value })}
                 type="datetime-local"
                 id="meeting-time"
                 name="meeting-time"
@@ -617,23 +634,33 @@ function ContractEdit() {
             <label htmlFor="info">
               <h3>Информация (банк)</h3>
               <textarea
-              value={editItem.info_bank}
-              onChange={(e)=> setEditItem({...editItem,info_bank:e.target.value})}
-              name="" id="info"></textarea>
+                value={editItem.info_bank}
+                onChange={(e) => setEditItem({ ...editItem, info_bank: e.target.value })}
+                name="" id="info"></textarea>
             </label>
             <label htmlFor="oked">
               <h3>ОКЭД</h3>
               <input
-              value={editItem.oked}
-              onChange={(e)=> setEditItem({...editItem,oked:e.target.value})}
-              id='oked' type="number" />
+                value={editItem.oked}
+                onChange={(e) => setEditItem({ ...editItem, oked: e.target.value })}
+                id='oked' type="number" />
             </label>
             <label htmlFor="bank">
               <h3>Информация (адрес)</h3>
               <textarea
-              value={editItem.info_address}
-              onChange={(e)=>setEditItem({...editItem,info_address:e.target.value})}
-              name="" id="bank"></textarea>
+                value={editItem.info_address}
+                onChange={(e) => setEditItem({ ...editItem, info_address: e.target.value })}
+                name="" id="bank"></textarea>
+            </label>
+            <label htmlFor="adres2">
+              <h3>Адрес заказчика</h3>
+              <textarea
+                style={{
+                  wordSpacing: '10px', // Bu `textarea` uchun ishlamaydi, lekin ko'rinishni yaxshilash uchun qo'yilgan
+                }}
+                value={formattedAddress}
+                onChange={(e) => setEditItem({ ...editItem, address: e.target.value })}
+                name="" id="adres2"></textarea>
             </label>
             <button type='submit'>Создать</button>
           </form>
@@ -642,8 +669,8 @@ function ContractEdit() {
             <label htmlFor="data">
               <h3>Дата контракта</h3>
               <input
-              value={editItem.contract_date}
-              onChange={(e)=> setEditItem({...editItem, contract_date:e.target.value})}
+                value={editItem.contract_date}
+                onChange={(e) => setEditItem({ ...editItem, contract_date: e.target.value })}
                 type="datetime-local"
                 id="meeting-time"
                 name="meeting-time"
@@ -652,16 +679,26 @@ function ContractEdit() {
             <label htmlFor="info">
               <h3>Информация (банк)</h3>
               <textarea
-              value={editItem.info_bank}
-              onChange={(e)=> setEditItem({...editItem,info_bank:e.target.value})}
-              name="" id="info"></textarea>
+                value={editItem.info_bank}
+                onChange={(e) => setEditItem({ ...editItem, info_bank: e.target.value })}
+                name="" id="info"></textarea>
             </label>
             <label htmlFor="bank">
               <h3>Информация (адрес)</h3>
               <textarea
-              value={editItem.info_address}
-              onChange={(e)=>setEditItem({...editItem,info_address:e.target.value})}
-              name="" id="bank"></textarea>
+                value={editItem.info_address}
+                onChange={(e) => setEditItem({ ...editItem, info_address: e.target.value })}
+                name="" id="bank"></textarea>
+            </label>
+            <label htmlFor="adres2">
+              <h3>Адрес заказчика</h3>
+              <textarea
+                style={{
+                  wordSpacing: '10px', // Bu `textarea` uchun ishlamaydi, lekin ko'rinishni yaxshilash uchun qo'yilgan
+                }}
+                value={formattedAddress}
+                onChange={(e) => setEditItem({ ...editItem, address: e.target.value })}
+                name="" id="adres2"></textarea>
             </label>
             <button type='submit'>Создать</button>
           </form>
@@ -669,6 +706,7 @@ function ContractEdit() {
         <div className='CreateContracts-text'>
           <div className={`fizperson ${isActive === 2 ? "fizperson-active" : "dn"}`}>
             <FroalaEditorComponent
+              key={editItem.id}
               tag='textarea'
               model={content2}
               onModelChange={handleModelChange2}
@@ -680,6 +718,7 @@ function ContractEdit() {
           </div>
           <div className={`yozperson ${isActive === 1 ? "yozperson-active" : "dn"}`}>
             <FroalaEditorComponent
+              key={editItem.id}
               tag='textarea'
               model={content}
               onModelChange={handleModelChange}

@@ -59,6 +59,7 @@ function Contract1() {
     }, [id]);
     
     
+console.log(data);
 
     const downloadPDF = () => {
         html2canvas(divRef.current, {
